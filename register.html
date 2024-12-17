@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDIAN X LEAGUE (IXL) Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+            font-size: 16px;
+        }
+        input[type="text"], input[type="email"], input[type="checkbox"], select, textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .checkbox-group label {
+            font-size: 14px;
+            margin-left: 20px;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>INDIAN X LEAGUE (IXL) - Gamers Community Registration</h1>
+    <form action="/submit_registration" method="POST">
+        <!-- Full Name -->
+        <label for="name">Full Name (First Name, Last Name)</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- Username -->
+        <label for="username">Username (Your Gamer Tag)</label>
+        <input type="text" id="username" name="username" required>
+
+        <!-- Email -->
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Preferred Gaming Platform -->
+        <label>Preferred Gaming Platform</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="platform" value="PC"> PC</label>
+            <label><input type="checkbox" name="platform" value="PlayStation"> PlayStation</label>
+            <label><input type="checkbox" name="platform" value="Xbox"> Xbox</label>
+            <label><input type="checkbox" name="platform" value="Nintendo Switch"> Nintendo Switch</label>
+            <label><input type="checkbox" name="platform" value="Mobile"> Mobile</label>
+            <label><input type="checkbox" name="platform" value="Other"> Other (Please specify)</label>
+            <input type="text" name="other-platform" placeholder="Other platform" style="display:none;">
+        </div>
+
+        <!-- Favorite Game Genres -->
+        <label>Favorite Game Genres</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="genres" value="Action"> Action</label>
+            <label><input type="checkbox" name="genres" value="Adventure"> Adventure</label>
+            <label><input type="checkbox" name="genres" value="RPG"> RPG</label>
+            <label><input type="checkbox" name="genres" value="FPS"> FPS</label>
+            <label><input type="checkbox" name="genres" value="Strategy"> Strategy</label>
+            <label><input type="checkbox" name="genres" value="Simulation"> Simulation</label>
+            <label><input type="checkbox" name="genres" value="MOBA"> MOBA</label>
+            <label><input type="checkbox" name="genres" value="Sports"> Sports</label>
+            <label><input type="checkbox" name="genres" value="Other"> Other (Please specify)</label>
+            <input type="text" name="other-genre" placeholder="Other genre" style="display:none;">
+        </div>
+
+        <!-- City -->
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+
+        <!-- State -->
+        <label for="state">State/Province</label>
+        <input type="text" id="state" name="state" required>
+
+        <!-- Country -->
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" required>
+
+        <!-- What do you want from IXL? -->
+        <label>What do you want from the IXL community?</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="community-goals" value="Find teammates"> Find new teammates</label>
+            <label><input type="checkbox" name="community-goals" value="Share gaming tips"> Share gaming tips</label>
+            <label><input type="checkbox" name="community-goals" value="Participate in tournaments"> Participate in tournaments</label>
+            <label><input type="checkbox" name="community-goals" value="Chat with fellow gamers"> Chat with fellow gamers</label>
+            <label><input type="checkbox" name="community-goals" value="Game streaming"> Game streaming/content creation</label>
+            <label><input type="checkbox" name="community-goals" value="Other"> Other (Please specify)</label>
+            <input type="text" name="other-goal" placeholder="Other goal" style="display:none;">
+        </div>
+
+        <!-- Voice Chat Interest -->
+        <label for="voice-chat">Are you interested in voice chat during gaming sessions?</label>
+        <select id="voice-chat" name="voice-chat">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Maybe">Maybe</option>
+        </select>
+
+        <!-- Terms Agreement -->
+        <label>
+            <input type="checkbox" name="terms" required> I agree to the Terms and Conditions
+        </label>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Submit Registration</button>
+    </form>
+</div>
+
+<script>
+    // Handle "Other" platform and genre fields visibility
+    document.querySelectorAll('input[name="platform"]').forEach(function(input) {
+        input.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                document.querySelector('input[name="other-platform"]').style.display = 'block';
+            } else {
+                document.querySelector('input[name="other-platform"]').style.display = 'none';
+            }
+        });
+    });
+
+    document.querySelectorAll('input[name="genres"]').forEach(function(input) {
+        input.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                document.querySelector('input[name="other-genre"]').style.display = 'block';
+            } else {
+                document.querySelector('input[name="other-genre"]').style.display = 'none';
+            }
+        });
+    });
+
+    document.querySelectorAll('input[name="community-goals"]').forEach(function(input) {
+        input.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                document.querySelector('input[name="other-goal"]').style.display = 'block';
+            } else {
+                document.querySelector('input[name="other-goal"]').style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
